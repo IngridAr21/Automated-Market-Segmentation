@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper - Formulario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css" rel="stylesheet" />
+</head>
+<div class="logo_top_corner">
+    <img src="{{ url_for('static', filename='img/Middel 64.svg') }}" alt="Vesper Logo 64">
+</div>
+<body class="input-page">
+    <div class="form-wrapper">
+        <h1>Please fill in the following form with information about your Company</h1>
+        <form id="myForm" action="/input" method="POST">
+            <label for="company_name_input">What is the name of your company?</label>
+            <input type="text" id="company_name_input" name="company_name_input" placeholder="Enter company name">
+
+            <label for="industry_input">What industry does your company operate in?</label>
+            <select id="industry_input" name="industry_input" required>
+                <option></option>
+                <option value="">Select</option>
+                <option value="Agriculture, Forestry, Fishing and Hunting">Agriculture, Forestry, Fishing and Hunting</option>
+                <option value="Mining, Quarrying, and Oil and Gas Extraction">Mining, Quarrying, and Oil and Gas Extraction</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Construction">Construction</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Wholesale Trade">Wholesale Trade</option>
+                <option value="Retail Trade">Retail Trade</option>
+                <option value="Transportation and Warehousing">Transportation and Warehousing</option>
+                <option value="Information">Information</option>
+                <option value="Finance and Insurance">Finance and Insurance</option>
+                <option value="Real Estate and Rental and Leasing">Real Estate and Rental and Leasing</option>
+                <option value="Professional, Scientific, and Technical Services">Professional, Scientific, and Technical Services</option>
+                <option value="Management of Companies and Enterprises">Management of Companies and Enterprises</option>
+                <option value="Administrative and Support and Waste Management and Remediation Services">Administrative and Support and Waste Management and Remediation Services</option>
+                <option value="Educational Services">Educational Services</option>
+                <option value="Health Care and Social Assistance">Health Care and Social Assistance</option>
+                <option value="Arts, Entertainment, and Recreation">Arts, Entertainment, and Recreation</option>
+                <option value="Accommodation and Food Services">Accommodation and Food Services</option>
+                <option value="Other Services (except Public Administration)">Other Services (except Public Administration)</option>
+                <option value="Public Administration">Public Administration</option>
+                <option value="Telecommunications">Telecommunications</option>
+                <option value="Aerospace and Defense">Aerospace and Defense</option>
+                <option value="Biotechnology">Biotechnology</option>
+                <option value="Chemicals">Chemicals</option>
+                <option value="Consumer Goods">Consumer Goods</option>
+                <option value="E-commerce">E-commerce</option>
+                <option value="Environmental Services">Environmental Services</option>
+                <option value="Government">Government</option>
+                <option value="Legal Services">Legal Services</option>
+                <option value="Media and Entertainment">Media and Entertainment</option>
+                <option value="Pharmaceuticals">Pharmaceuticals</option>
+                <option value="Renewable Energy">Renewable Energy</option>
+                <option value="Software Development">Software Development</option>
+                <option value="Tourism and Travel">Tourism and Travel</option>
+                <option value="Automotive">Automotive</option>
+                <option value="Food and Beverage">Food and Beverage</option>
+                <option value="Hospitality">Hospitality</option>
+                <option value="Insurance">Insurance</option>
+                <option value="Logistics and Supply Chain">Logistics and Supply Chain</option>
+                <option value="Nonprofit">Nonprofit</option>
+                <option value="Printing and Publishing">Printing and Publishing</option>
+                <option value="Real Estate Development">Real Estate Development</option>
+                <option value="Retail and Consumer Goods">Retail and Consumer Goods</option>
+                <option value="Shipping and Maritime">Shipping and Maritime</option>
+                <option value="Sports and Recreation">Sports and Recreation</option>
+                <option value="Textiles and Apparel">Textiles and Apparel</option>
+                <option value="Venture Capital and Private Equity">Venture Capital and Private Equity</option>
+                <option value="Waste Management">Waste Management</option>
+                <option value="Wood Products">Wood Products</option>
+                <option value="Zoological and Botanical Gardens">Zoological and Botanical Gardens</option>
+                <option value="">Not Specified</option>
+            </select>
+
+            <label for="location_input">Where are you located?</label>
+            <select id="location_input" name="location_input" multiple>
+                <option value="">Select</option>
+                <option value="Northern Africa">Northern Africa</option>
+                <option value="West Africa">West Africa</option>
+                <option value="East Africa">East Africa</option>
+                <option value="Central Africa">Central Africa</option>
+                <option value="Southern Africa">Southern Africa</option>
+                <option value="North America">North America</option>
+                <option value="Central America">Central America</option>
+                <option value="Caribbean">Caribbean</option>
+                <option value="South America">South America</option>
+                <option value="East Asia">East Asia</option>
+                <option value="Southeast Asia">Southeast Asia</option>
+                <option value="South Asia">South Asia</option>
+                <option value="Central Asia">Central Asia</option>
+                <option value="Western Asia">Western Asia</option>
+                <option value="Western Europe">Western Europe</option>
+                <option value="Northern Europe">Northern Europe</option>
+                <option value="Southern Europe">Southern Europe</option>
+                <option value="Eastern Europe">Eastern Europe</option>
+                <option value="Australia and New Zealand">Australia and New Zealand</option>
+                <option value="Melanesia">Melanesia</option>
+                <option value="Micronesia">Micronesia</option>
+                <option value="Polynesia">Polynesia</option>
+                <option value="Arctic">Arctic</option>
+                <option value="Antarctica">Antarctica</option>
+                <option value="">Not Specified</option>
+            </select>
+
+
+            <label for="size_input">What is the size of your company?</label>
+            <select id="size_input" name="size_input">
+                <option value="">Select</option>
+                <option value="1-10 employees">1-10 employees</option>
+                <option value="11-50 employees">11-50 employees</option>
+                <option value="51-500 employees">51-500 employees</option>
+                <option value="501-5000 employees">501-5000 employees</option>
+                <option value="5000+ employees">5000+ employees</option>
+                <option value="">Not Specified</option>
+            </select>
+
+            <label for="annual_revenue_input">What is your annual revenue?</label>
+            <select id="annual_revenue_input" name="annual_revenue_input">
+                <option value="">Select</option>
+                <option value="Less than €1 million">Less than €1 million</option>
+                <option value="€1 million - €10 million">€1 million - €10 million</option>
+                <option value="€10 million - €50 million">€10 million - €50 million</option>
+                <option value="€50 million - €100 million">€50 million - €100 million</option>
+                <option value="">Not Specified</option>
+            </select>
+
+            <label for="geo_focus_input">What is your geographical focus?</label>
+            <select id="geo_focus_input" name="geo_focus_input" required>
+                <option value="">Select</option>
+                <option value="A specific country">A specific country</option>
+                <option value="Multiple countries">Multiple countries</option>
+                <option value="A region">A region</option>
+                <option value="Global">Global</option>
+                <option value="">Not Specified</option>
+            </select>
+
+            <label for="strategic_position_input">What is your strategic positioning?</label>
+            <select id="strategic_position_input" name="strategic_position_input" multiple>
+                <option value="">Select</option>
+                <option value="Cost Leader">Cost Leader</option>
+                <option value="Differentiator">Differentiator</option>
+                <option value="Customer-Centricity">Customer-Centricity</option>
+                <option value="Niche Focus">Niche Focus</option>
+                <option value="Innovation Leader">Innovation Leader</option>
+                <option value="Sustainability Focus">Sustainability Focus</option>
+                <option value="Quality Leader">Quality Leader</option>
+                <option value="Market Penetration">Market Penetration</option>
+                <option value="">Not Specified</option>
+            </select>
+
+            <label for="key_competitors_input">What are your key competitors?</label>
+            <input type="text" id="key_competitors_input" name="key_competitors_input" placeholder="Enter company key competitors">
+
+            <div class="button-container">
+                <button type="submit" id="submitButton">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            $('select').select2({
+                placeholder: "Select an option",
+                allowClear: true
+            });
+        });
+    </script>
+</body>
+</html>

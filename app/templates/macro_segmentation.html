@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macro Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function redirectToDecisionMakers(data) {
+            // Convert data to JSON and send via POST
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = "{{ url_for('decision_makers') }}";
+
+            // Add all attributes as hidden inputs
+            Object.keys(data).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            });
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</head>
+<body class="segmentation-page">
+    <div class="logo_top_right_corner">
+        <img src="{{ url_for('static', filename='img/Middel 64.svg') }}" alt="Vesper Logo 64">
+    </div>
+    <h1>Macro Segmentation</h1>
+
+    <div id="Macrosegmentation">
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Industry</th>
+                <th>Organization Size</th>
+                <th>Annual revenue</th>
+                <th>Operational Regions</th>
+                <th>Market density</th>
+                <th>Purchasing frequency</th>
+                <th>Purchasing volume</th>
+                <th>Technology Adoption</th>
+                <th>Usage engagement rate</th>
+                <th>Growth Stage</th>
+                <th>Ownership Structure</th>
+                <th>Influence structure</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in macro_object %}
+            <tr>
+                <td>{{ obj.industry }}</td>
+                <td>{{ obj.organization_size }}</td>
+                <td>{{ obj.annual_revenue }}</td>
+                <td>{{ obj.operational_regions }}</td>
+                <td>{{ obj.market_density }}</td>
+                <td>{{ obj.purchasing_frequency }}</td>
+                <td>{{ obj.purchasing_volume }}</td>
+                <td>{{ obj.technology_adoption }}</td>
+                <td>{{ obj.usage_engagement_rate }}</td>
+                <td>{{ obj.growth_stage }}</td>
+                <td>{{ obj.ownership_structure }}</td>
+                <td>{{ obj.influence_structure }}</td>
+                <td>
+                    <button class="select-button" onclick="redirectToDecisionMakers({
+                            industry: '{{ obj.industry }}',
+                            organization_size: '{{ obj.organization_size }}',
+                            annual_revenue: '{{ obj.annual_revenue }}',
+                            operational_regions: '{{ obj.operational_regions }}',
+                            market_density: '{{ obj.market_density }}',
+                            purchasing_frequency: '{{ obj.purchasing_frequency }}',
+                            purchasing_volume: '{{ obj.purchasing_volume }}',
+                            technology_adoption: '{{ obj.technology_adoption }}',
+                            usage_engagement_rate: '{{ obj.usage_engagement_rate }}',
+                            growth_stage: '{{ obj.growth_stage }}',
+                            ownership_structure: '{{ obj.ownership_structure }}',
+                            influence_structure: '{{ obj.influence_structure }}'
+                            })">
+                        Select
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

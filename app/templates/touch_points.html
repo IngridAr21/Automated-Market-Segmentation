@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Journey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="customer_journey-page">
+<div class="logo_top_corner">
+    <img src="{{ url_for('static', filename='img/Middel 64.svg') }}" alt="Vesper Logo 64">
+</div>
+<h1>Customer Journey</h1>
+
+<div id="CustomerJourney">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Awareness</th>
+            <th>Considerations</th>
+            <th>Decision Making</th>
+            <th>Purchase</th>
+            <th>Service</th>
+            <th>Loyalty</th>
+            <th>Ambassador</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ customer_journey.awareness }}</td>
+            <td>{{ customer_journey.consideration }}</td>
+            <td>{{ customer_journey.decision_making }}</td>
+            <td>{{ customer_journey.purchase }}</td>
+            <td>{{ customer_journey.service }}</td>
+            <td>{{ customer_journey.loyalty }}</td>
+            <td>{{ customer_journey.ambassador }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

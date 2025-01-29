@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function redirectToCustomerJourney(data) {
+            console.log("Data passed to redirectToCustomerJourney:", data);
+            // Convert data to JSON and send via POST
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = "{{ url_for('touch_points') }}";
+
+            // Add all attributes as hidden inputs
+            Object.keys(data).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            });
+            console.log("Generated form:", form);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</head>
+<body class="segmentation-page">
+    <div class="logo_down_left_corner">
+        <img src="{{ url_for('static', filename='img/Middel 64.svg') }}" alt="Vesper Logo 64">
+    </div>
+    <h1>Micro Segmentation</h1>
+
+    <div id="Microsegmentation">
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Education Level</th>
+                <th>Technology Used</th>
+                <th>Job Title</th>
+                <th>Experience Level</th>
+                <th>Functional Field</th>
+                <th>Decision Making Role</th>
+                <th>Work Environment</th>
+                <th>Professional Network</th>
+                <th>Risk Tolerance</th>
+                <th>Decision Making Style</th>
+                <th>Motivations</th>
+                <th>Personality Traits</th>
+                <th>Pain Points</th>
+                <th>KPIs</th>
+                <th>Challenges</th>
+                <th>Goals</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for micro in top_micro_objects %}
+                <tr>
+                    <td>{{ micro.age }}</td>
+                    <td>{{ micro.gender }}</td>
+                    <td>{{ micro.education_level }}</td>
+                    <td>{{ micro.technology_used }}</td>
+                    <td>{{ micro.job_title }}</td>
+                    <td>{{ micro.experience_level }}</td>
+                    <td>{{ micro.functional_field }}</td>
+                    <td>{{ micro.decision_making_role }}</td>
+                    <td>{{ micro.work_environment }}</td>
+                    <td>{{ micro.professional_network }}</td>
+                    <td>{{ micro.risk_tolerance }}</td>
+                    <td>{{ micro.decision_making_style }}</td>
+                    <td>{{ micro.motivations }}</td>
+                    <td>{{ micro.personality_traits }}</td>
+                    <td>{{ micro.pain_points }}</td>
+                    <td>{{ micro.kpis }}</td>
+                    <td>{{ micro.challenges }}</td>
+                    <td>{{ micro.goals }}</td>
+                    <td>
+                        <button class="select-button" onclick ="redirectToCustomerJourney({
+                                age: '{{ micro.age }}',
+                                gender: '{{ micro.gender }}',
+                                education_level: '{{ micro.education_level }}',
+                                technology_used: '{{ micro.technology_used }}',
+                                job_title: '{{ micro.job_title }}',
+                                experience_level: '{{ micro.experience_level }}',
+                                functional_field: '{{ micro.functional_field }}',
+                                decision_making_role: '{{ micro.decision_making_role }}',
+                                work_environment: '{{ micro.work_environment }}',
+                                professional_network: '{{ micro.professional_network }}',
+                                risk_tolerance: '{{ micro.risk_tolerance }}',
+                                decision_making_style: '{{ micro.decision_making_style }}',
+                                motivations: '{{ micro.motivations }}',
+                                personality_traits: '{{ micro.personality_traits }}',
+                                pain_points: '{{ micro.pain_points }}',
+                                kpis: '{{ micro.kpis }}',
+                                challenges: '{{ micro.challenges }}',
+                                goals: '{{ micro.goals }}'
+                                })">
+                            Select
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
